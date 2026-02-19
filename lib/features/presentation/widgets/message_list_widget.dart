@@ -18,6 +18,7 @@ class MessageListWidget extends StatelessWidget {
     }
 
     return ListView.builder(
+      controller: provider.scrollController,
       itemCount: provider.messages?.length ?? 0,
       itemBuilder: (context, index) {
         final message = provider.messages![index];

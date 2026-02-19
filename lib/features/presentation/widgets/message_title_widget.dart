@@ -9,6 +9,8 @@ class MessageTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       children: [
         ListTile(
@@ -35,7 +37,11 @@ class MessageTitleWidget extends StatelessWidget {
               ),
 
               code: Theme.of(context).textTheme.bodySmall?.copyWith(
-                backgroundColor: Colors.grey[200],
+                backgroundColor:
+                    isDarkMode ? Colors.grey[800] : Colors.grey[200],
+
+                color: isDarkMode ? Colors.amber[200] : Colors.black87,
+                fontFamily: 'monospace',
               ),
             ),
           ),
