@@ -73,6 +73,8 @@ class ChatProvider extends ChangeNotifier {
         timestamp: timestamp,
       );
 
+      logger.d(responseMessage.content);
+
       _updateMessageToUI(responseMessage);
       _isLoadResponse = false;
     } catch (e) {

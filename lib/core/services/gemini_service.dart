@@ -3,7 +3,7 @@ import 'package:firebase_ai/firebase_ai.dart';
 class GeminiService {
   late final GenerativeModel model;
   GeminiService() {
-    model = FirebaseAI.googleAI().generativeModel(model: 'gemini-2.0-flash');
+    model = FirebaseAI.googleAI().generativeModel(model: 'gemini-2.5-flash');
   }
 
   Future<String> sendRequestToModel(String message) async {

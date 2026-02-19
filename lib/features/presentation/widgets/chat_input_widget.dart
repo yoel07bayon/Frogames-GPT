@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_ia/core/provider/chat_provider.dart';
 import 'package:personal_ia/features/presentation/widgets/buttons_chat.dart';
+import 'package:personal_ia/features/presentation/widgets/message_list_widget.dart';
 import 'package:provider/provider.dart';
 
 class ChatInputWidget extends StatelessWidget {
@@ -8,17 +9,20 @@ class ChatInputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<ChatProvider>(context);
+    final provider = Provider.of<ChatProvider>(context);
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          Expanded(child: MessageListWidget()),
           Row(
             children: [
               Expanded(
                 child: TextField(
-                  controller: controller.messageController,
+                  readOnly: provider.isLoadResponse,
+                  controller: provider.messageController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
